@@ -1,0 +1,28 @@
+﻿@model NostalgiaGenerator.Models.MusicSelectModel
+
+@{
+    ViewData["Title"] = "NostalgiaGenerator - Select";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/music.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/music-select.css")" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/js/music-select.js")" asp-append-version="true"></script>
+}
+
+<h1>Best year?</h1>
+
+<ul class="year-container">
+    @for (int i = @Model.EndYear; i >= @Model.StartYear; i--)
+    {
+        <li class="year">@i</li>
+    }
+</ul>
+
+<form asp-controller="Music" method="post" id="year-form">
+    <input type="hidden" id="year" name="year" value="2010">
+</form>

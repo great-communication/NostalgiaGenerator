@@ -1,0 +1,38 @@
+﻿@model MusicListenModel
+
+@{
+    ViewData["Title"] = "NostalgiaGenerator - Listen";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/music.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/music-listen.css")" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/js/music-listen.js")" asp-append-version="true"></script>
+}
+
+<h1>You might like</h1>
+<h1>@Model.Message</h1>
+
+<div class="preview-container">
+    @foreach (var track in Model.Tracks)
+    {
+
+        <div class="preview">
+            <p>@track.Artists[0].Name - @track.Name</p>
+            <img src="@track.Album.Images.First().Url">
+            <audio controls src="@track.PreviewUrl" type="audio/mpeg"></audio>
+        </div>
+
+    }
+</div>
+
+<p id="hipster">NO! I don't like! I'm a hipster... :<</p>
+
+<form asp-controller="Music" asp-action="MusicSelectHipster" method="post" id="hipster-form">
+    <input type="hidden" id="year" name="year" value="@Model.Year">
+</form>
+

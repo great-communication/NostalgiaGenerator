@@ -1,0 +1,33 @@
+﻿.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preview {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 15px;
+}
+
+.preview > img {
+    width: 200px;
+}
+
+.preview > audio {
+    height: 25px;
+}
+
+#hipster {
+    margin: 50px;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#hipster:hover {
+    font-weight: bold;
+}
